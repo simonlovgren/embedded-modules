@@ -1,2 +1,2 @@
-# embedded-modules
+# Embedded modules
 Useful modules for embedded development.
