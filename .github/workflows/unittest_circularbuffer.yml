@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install CUNIT and XALAN
-      run: sudo apt install -y libcunit1-doc libcunit1-dev xalan
+      run: sudo apt install -y libcunit1-doc libcunit1-dev xalan tree
     - name: make
       run: make -C c/CircularBuffer/cunit
     - name: List structure 1
