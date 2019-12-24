@@ -12,7 +12,7 @@ jobs:
     - name: Install CUNIT and XALAN
       run: sudo apt install -y libcunit1-doc libcunit1-dev xalan tree
     - name: make
-      run: make -C c/CircularBuffer/cunit
+      run: make -C c/CircularBuffer/cunit automated
     - name: List structure 1
       run: tree
     - name: Translate cunit to junit
