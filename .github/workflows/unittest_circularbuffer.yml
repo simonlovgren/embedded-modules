@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Install CUNIT and XALAN
+    - name: Install CUNIT
       run: sudo apt install -y libcunit1-doc libcunit1-dev
     - name: Run CUnit Tests
       run: make -C c/CircularBuffer/cunit
