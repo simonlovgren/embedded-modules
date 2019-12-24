@@ -11,7 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install CUNIT and XALAN
       run: sudo apt install -y libcunit1-doc libcunit1-dev xalan
-    - name: Download 
     - name: make
       run: make -C c/CircularBuffer/cunit
     - name: Translate cunit to junit
