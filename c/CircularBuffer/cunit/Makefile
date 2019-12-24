@@ -86,10 +86,14 @@ else
 endif
 
 # PHONY
-.PHONY: all directories obj test clean
+.PHONY: all automated directories obj test clean
 
 # default entrypoint
-all: directories test
+all automated: directories test
+
+# automated entrypoint
+automated: CFLAGS += -DAUTOMATED_TEST
+
 
 # Create output directories
 directories:

@@ -12,6 +12,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <CUnit/Basic.h>
+#include <CUnit/Automated.h>
 
 #include "ICircularBuffer.h"
 
@@ -359,9 +360,16 @@ int main()
         return CU_get_error();
     }
 
+#ifdef AUTOMATED_TEST
+    // Run all tests using CUnit basic interface
+    CU_set_output_filename( "CircularBuffer" );
+    CU_list_tests_to_file();
+    CU_automated_run_tests();
+#else
     // Run all tests using CUnit basic interface
     CU_basic_set_mode( CU_BRM_VERBOSE );
     CU_basic_run_tests();
+#endif
     CU_cleanup_registry();
     return CU_get_error();
 }
