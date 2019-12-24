@@ -13,5 +13,3 @@ jobs:
       run: sudo apt install -y libcunit1-doc libcunit1-dev xalan tree
     - name: Run CUnit Tests
       run: make -C c/CircularBuffer/cunit automated
-    - name: Check results
-      run: [[ $( cat c/CircularBuffer/cunit/CircularBuffer-Results.xml | grep CUNIT_RUN_TEST_FAILURE | wc -l ) -eq 0 ]]

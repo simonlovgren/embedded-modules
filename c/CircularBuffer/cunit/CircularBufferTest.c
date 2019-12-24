@@ -370,6 +370,9 @@ int main()
     CU_basic_set_mode( CU_BRM_VERBOSE );
     CU_basic_run_tests();
 #endif
+    unsigned failures = CU_get_number_of_failures();
     CU_cleanup_registry();
-    return CU_get_error();
+    int result = CU_get_error();
+    result = ( result > 0 ) ? result : ( ( failures > 0 ) ? result | 1 : result );
+    return result;
 }
