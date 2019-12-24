@@ -1,0 +1,25 @@
+name: Unittest CircularBuffer
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install CUNIT and XALAN
+      run: sudo apt install -y libcunit1-doc libcunit1-dev xalan tree
+    - name: make
+      run: make -C c/CircularBuffer/cunit automated
+    - name: List structure 1
+      run: tree
+    - name: Translate cunit to junit
+      run: |
+        cd c/CircularBuffer/cunit
+        wget https://raw.githubusercontent.com/shawnliang/cunit-to-junit/master/cunit-to-junit.xsl
+        cp /usr/share/CUnit/* ./
+        xalan -xsl cunit-to-junit.xsl -in CircularBuffer-Results.xml -out CircularBuffer-Results-JUnit.xml
+    - name: List structure 2
+      run: tree
