@@ -23,3 +23,7 @@ jobs:
         xalan -xsl cunit-to-junit.xsl -in CircularBuffer-Results.xml -out CircularBuffer-Results-JUnit.xml
     - name: List structure 2
       run: tree
+    - name: Check results
+      uses: undefinedlabs/scope-for-junit-action@v1
+      with:
+        path: c/CircularBuffer/cunit
